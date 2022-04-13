@@ -76,13 +76,13 @@ BEGIN
 		) as float) * 100 as [Доля продаж товара % с НДС]
 	FROM [dbo].[fct_cheque] as f
 	inner join (SELECT
-					DISTINCT good_id,
-					good_name,
-					group_id,
-					group_name
-				FROM
-					dbo.dim_goods) as g
-						on g.good_id = f.good_id
+			DISTINCT good_id,
+				good_name,
+				group_id,
+				group_name
+			FROM
+				dbo.dim_goods) as g
+					on g.good_id = f.good_id
 	inner join 
 		[dim_stores] as s
 			on s.store_id = f.store_id
